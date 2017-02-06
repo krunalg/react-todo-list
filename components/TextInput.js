@@ -1,23 +1,26 @@
-import React, {Component} from 'react'
-import TextDisplay from './TextDisplay'
+import React, { Component } from 'react'
+import * as actions from '../redux/actions'
 
-class TextInput extends Component{
-    constructor(props, context){
+class TextInput extends Component {
+    constructor(props, context) {
         super(props, context)
-        this.state = {
-            inputText : ""
-        }
     }
-    handleChange(event){
-        this.setState({inputText:event.target.value});
+    handleChange(e) {
+        this.props.dispatch(actions.changeText(e.target.value))
     }
-    render(){
+    addTodo(e){
+        let id = Date.now();
+        let text = this.props.inputText;
+        this.props.dispatch(actions.addTodo(text,id));
+        this.props.dispatch(actions.clearText());
+    }
+    render() {
         return (
             <div>
-                <TextDisplay text={this.state.inputText} />
-                <input type="text" placeholder="sample value" 
-                    onChange={this.handleChange.bind(this)} 
-                    value={this.state.inputText} />
+                <input type="text" placeholder="Todo Text"
+                    onChange={this.handleChange.bind(this)}
+                    value={this.props.inputText} />
+                <button onClick={this.addTodo.bind(this)}>Add Item</button>
             </div>
         )
     }

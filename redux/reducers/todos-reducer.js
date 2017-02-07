@@ -18,14 +18,16 @@ export default function reducer(state = {
       return Object.assign({}, state, obj);
     }
     case "ADD_TODO": {
-      return Object.assign({}, state, {
-        todos: [{
-          canEdit: false,
-          text: action.text,
-          completed: false,
-          id: action.id
-        }, ...state.todos]
-      });
+      if (action.text !== "") {
+        return Object.assign({}, state, {
+          todos: [{
+            canEdit: false,
+            text: action.text,
+            completed: false,
+            id: action.id
+          }, ...state.todos]
+        });
+      }
     }
     case "CLEAR_TEXT": {
       var obj = {
@@ -48,12 +50,14 @@ export default function reducer(state = {
         })
       });
     }
-    case 'SAVE_TODO':{
+    case 'SAVE_TODO': {
       return Object.assign({}, state, {
         todos: state.todos.map(function (todo) {
           if (todo.id == action.id) {
             todo.canEdit = false;
-            todo.text = action.text;
+            if (action.text !== "") {
+              todo.text = action.text;
+            }
           }
           return todo;
         })

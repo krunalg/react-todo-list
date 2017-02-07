@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { find } from 'lodash'
 
-import { editTodo, resetTodo, changeText } from '../redux/actions'
+import { editTodo, saveTodo, resetTodo, changeText } from '../redux/actions'
 
 class TodoList extends Component {
     constructor(props, context) {
@@ -15,7 +15,7 @@ class TodoList extends Component {
     }
     handleOnKeyUp(e) {
         if (e.keyCode === 13) {
-            console.log("enter pressed")
+            this.props.dispatch(saveTodo(e.target.id, e.target.value));
         } else if (e.keyCode === 27) {
             this.props.dispatch(resetTodo(e.target.id));
         } else {

@@ -13,6 +13,14 @@ export function editTodo(id){
     }
 }
 
+export function saveTodo(id, text){
+    return {
+        type: 'SAVE_TODO',
+        text,
+        id
+    }
+}
+
 export function resetTodo(id){
     return {
         type: 'RESET_TODO',

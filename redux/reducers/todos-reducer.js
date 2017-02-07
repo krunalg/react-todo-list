@@ -48,6 +48,17 @@ export default function reducer(state = {
         })
       });
     }
+    case 'SAVE_TODO':{
+      return Object.assign({}, state, {
+        todos: state.todos.map(function (todo) {
+          if (todo.id == action.id) {
+            todo.canEdit = false;
+            todo.text = action.text;
+          }
+          return todo;
+        })
+      });
+    }
     case 'RESET_TODO': {
       return Object.assign({}, state, {
         todos: state.todos.map(function (todo) {

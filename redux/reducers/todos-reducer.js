@@ -41,8 +41,18 @@ export default function reducer(state = {
     case 'EDIT_TODO': {
       return Object.assign({}, state, {
         todos: state.todos.map(function (todo) {
-          if (todo.id === action.id) {
+          if (todo.id == action.id) {
             todo.canEdit = true;
+          }
+          return todo;
+        })
+      });
+    }
+    case 'RESET_TODO': {
+      return Object.assign({}, state, {
+        todos: state.todos.map(function (todo) {
+          if (todo.id == action.id) {
+            todo.canEdit = false;
           }
           return todo;
         })

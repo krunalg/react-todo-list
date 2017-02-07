@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+
 import * as actions from '../redux/actions'
 
 class TextInput extends Component {
@@ -6,13 +8,13 @@ class TextInput extends Component {
         super(props, context)
     }
     handleChange(e) {
-        this.props.dispatch(actions.changeText(e.target.value))
+        this.props.dispatch(actions.changeText(e.target.value, "inputText"));
     }
     addTodo(e){
         let id = Date.now();
         let text = this.props.inputText;
         this.props.dispatch(actions.addTodo(text,id));
-        this.props.dispatch(actions.clearText());
+        this.props.dispatch(actions.clearText("inputText"));
     }
     render() {
         return (

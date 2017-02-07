@@ -12,7 +12,7 @@ class App extends Component {
         return (
             <div>
                 <TextInput inputText={this.props.todosreducer.inputText} dispatch={this.props.dispatch} />
-                <TodoList todos={this.props.todosreducer.todos} />
+                <TodoList todos={this.props.todosreducer.todos} dispatch={this.props.dispatch} editText={this.props.editText} />
             </div>
         )
     }

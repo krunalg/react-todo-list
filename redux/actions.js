@@ -6,15 +6,24 @@ export function addTodo(text, id) {
     }
 }
 
-export function changeText(text) {
+export function editTodo(id){
     return {
-        type: "CHANGE_TEXT",
-        text: text
+        type: 'EDIT_TODO',
+        id
     }
 }
 
-export function clearText(){
+export function changeText(text, textType) {
     return {
-        type: "CLEAR_TEXT"
+        type: "CHANGE_TEXT",
+        text: text,
+        textType: textType
+    }
+}
+
+export function clearText(textType){
+    return {
+        type: "CLEAR_TEXT",
+        textType: textType
     }
 }

@@ -41,10 +41,10 @@ class TodoList extends Component {
                 className={todo.completed ? "todo-completed list-group-item" : "list-group-item"}>
                 <span className="todo-text" onClick={this.handleClick.bind(this, todo.id, todo.completed)}>{todo.text}</span>
                 <div className="pull-right">
-                    {!todo.completed && <button type="button" className="btn btn-default btn-xs" onClick={this.completeTodo.bind(this, todo.id)}>
+                    {!todo.completed && <button type="button" className="btn btn-success btn-xs" onClick={this.completeTodo.bind(this, todo.id)}>
                         <span className="glyphicon glyphicon-ok" aria-hidden="true"></span>
                     </button>}&nbsp;
-                    <button type="button" className="btn btn-default btn-xs" onClick={this.removeTodo.bind(this, todo.id)}>
+                    <button type="button" className="btn btn-danger btn-xs" onClick={this.removeTodo.bind(this, todo.id)}>
                         <span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
                     </button>
                 </div>

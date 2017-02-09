@@ -73,6 +73,23 @@ export default function reducer(state = {
         })
       });
     }
+    case 'REMOVE_TODO':{
+      return Object.assign({}, state, {
+        todos: _.remove(state.todos, function(todo){
+          return todo.id != action.id
+        })
+      });
+    }
+    case 'COMPLETE_TODO':{
+      return Object.assign({}, state, {
+        todos: state.todos.map(function (todo) {
+          if (todo.id == action.id) {
+            todo.completed = true;
+          }
+          return todo;
+        })
+      }); 
+    }
   }
 
   return state

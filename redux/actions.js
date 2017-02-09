@@ -21,6 +21,20 @@ export function saveTodo(id, text){
     }
 }
 
+export function removeTodo(id){
+    return {
+        type:'REMOVE_TODO',
+        id
+    }
+}
+
+export function completeTodo(id){
+    return {
+        type:'COMPLETE_TODO',
+        id
+    }
+}
+
 export function resetTodo(id){
     return {
         type: 'RESET_TODO',

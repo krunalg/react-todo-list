@@ -1,5 +1,23 @@
 /** StyleSheet **/
+body { padding-top: 70px; }
 .todo-completed{
     font-style: italic;
-    text-decoration: overline;
+    text-decoration: line-through;
+}
+.todo-container{
+    overflow: auto;
+}
+.todo-textbox{
+    margin-bottom: 10px;
+}
+.todo-text{
+    width: 80%;
+    display: inline-block;
+}
+.badge-left{
+    float: left!important;
+    margin-right: 10px;
+}
+.clear{
+    clear:both;
 }

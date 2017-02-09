@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import TextInput from './TextInput'
-import TodoList from './TodoList'
 
 function mapStateToProps(state) {
     return state
@@ -10,10 +9,7 @@ function mapStateToProps(state) {
 class App extends Component {
     render() {
         return (
-            <div>
-                <TextInput inputText={this.props.todosreducer.inputText} dispatch={this.props.dispatch} />
-                <TodoList todos={this.props.todosreducer.todos} dispatch={this.props.dispatch} />
-            </div>
+                <TextInput inputText={this.props.todosreducer.inputText} dispatch={this.props.dispatch} todos={this.props.todosreducer.todos} />
         )
     }
 }
